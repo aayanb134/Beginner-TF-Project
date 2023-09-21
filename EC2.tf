@@ -1,7 +1,7 @@
 resource "aws_instance" "apache-webapp" {
-  ami           = data.aws_ami.amzlinux2.id
-  instance_type = ""
-  key_name      = ""
+  ami           = var.ec2-ami
+  instance_type = var.instance-type
+  key_name      = var.key-name
   subnet_id     = aws_subnet.main-subnet.id
   user_data     = <<-EOF
   #!/bin/bash

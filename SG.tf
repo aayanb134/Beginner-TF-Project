@@ -8,7 +8,7 @@ resource "aws_security_group" "allow-web-access" {
     from_port   = 22
     to_port     = 22
     protocol    = "ssh"
-    cidr_blocks = ""
+    cidr_blocks = var.sg-cidr-blocks
   }
 
   ingress {
@@ -16,7 +16,7 @@ resource "aws_security_group" "allow-web-access" {
     from_port   = 80
     to_port     = 80
     protocol    = "http"
-    cidr_blocks = ""
+    cidr_blocks = var.sg-cidr-blocks
   }
 
   ingress {
@@ -24,14 +24,14 @@ resource "aws_security_group" "allow-web-access" {
     from_port   = 443
     to_port     = 443
     protocol    = "https"
-    cidr_blocks = ""
+    cidr_blocks = var.sg-cidr-blocks
   }
 
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ""
+    cidr_blocks = var.sg-cidr-blocks
   }
 
   tags = {
